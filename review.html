@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #F5DEB3;
+    color: #8B4513;
+}
+
+.heading {
+    text-align: center;
+    padding: 20px;
+    font-family: "Imprint MT Shadow", serif;
+    background-image: url("C:/Users/Admin/Desktop/Mini Project/abt2.jpeg");
+}
+a{
+	padding: 10px;
+	text-decoration: none;
+	margin-left: 3%;
+	color: white;
+}
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 0;
+    color: black;
+}
+
+h3 {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+    color: #8B4513;
+}
+
+.review {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    gap: 1.5rem;
+}
+
+.review .box {
+    padding: 2rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.7);
+    border: 0.1rem solid rgba(0, 0, 0, 0.7);
+    background-color: #D2B48C;
+}
+
+.review .box .user {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.review .box .user img {
+    height: 7rem;
+    width: 7rem;
+    border-radius: 50%;
+}
+
+.review .box .user h3 {
+    font-size: 2.2rem;
+    color: brown;
+}
+
+.review .box p {
+    font-size: 1.4rem;
+    color: #8B4513;
+    line-height: 2;
+}
+
+.share-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.share-container .box {
+    width: 50%;
+    padding: 20px;
+    border: 1px solid #ccc;
+    margin-top: 20px;
+}
+
+button[type="submit"] {
+    background-color: #8B4513;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #FF8C66;
+}
+
+.share-experience {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    padding: 20px;
+    border: 1px solid #ccc;
+    margin-top: 20px;
+}
+
+.share-experience label {
+    margin-bottom: 5px;
+}
+
+.share-experience input[type="text"],
+.share-experience textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+.share-experience button {
+    padding: 10px 20px;
+    background-color: #8B4513;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.share-experience button:hover {
+    background-color: brown;
+}
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+<nav style="background-color: #4C3232; margin-top: 1.5px; text-decoration: none; padding: 0.7%;text-align: center;">
+<a href="C:/Users/Admin/Desktop/Mini Project/home page.html">HOME</a>
+<a href="C:/Users/Admin/Desktop/Mini Project/shopcart.html">SHOP</a>
+<a href="C:/Users/Admin/Desktop/Mini Project/aboutus.html">ABOUT</a>
+<a href="C:/Users/Admin/Desktop/Mini Project/review.html">REVIEW</a>
+<a href="C:/Users/Admin/Desktop/Mini Project/contactus.html">CONTACT US</a>
+<a href=""><i class="fas fa-shopping-cart" style="color: white; size: 7px;"></i></a>
+</nav>
+    <div class="heading">
+        <h1>Review</h1>
+    </div>
+
+    <section class="review">
+
+        <div class="box">
+            <div class="user">
+                <img decoding="async" src="C:/Users/Admin/Desktop/Mini Project/p1.avif" alt="">
+                <div class="info">
+                    <h3>Edward  Jones</h3>
+                </div>
+            </div>
+            <p>"Absolutely loved the variety of desserts available on the site! The booking process was smooth and hassle-free. Will definitely be coming back for more."</p>
+        </div>
+    
+        <div class="box">
+            <div class="user">
+                <img decoding="async" src="C:/Users/Admin/Desktop/Mini Project/p2.jpeg" alt="">
+                <div class="info">
+                    <h3>Jenna Marie</h3>
+                </div>
+            </div>
+            <p>"The desserts looked amazing on the site, but unfortunately, the one I ordered didn't quite meet my expectations in terms of taste. However, the delivery was prompt and the customer service was excellent."</p>
+        </div>
+    
+        <div class="box">
+            <div class="user">
+                <img decoding="async" src="C:/Users/Admin/Desktop/Mini Project/p3.jpeg" alt="">
+                <div class="info">
+                    <h3>Rakesh Khanna</h3>
+                </div>
+            </div>
+            <p> "Booking desserts through this site was a breeze! The presentation of the desserts was impeccable, and they tasted even better than they looked. Highly recommend!"</p>
+        </div>
+    
+        <div class="box">
+            <div class="user">
+                <img decoding="async" src="C:/Users/Admin/Desktop/Mini Project/p4.avif" alt="">
+                <div class="info">
+                    <h3>Liam Holland </h3>
+                </div>
+            </div>
+            <p>"Had a wonderful experience ordering desserts from this site. The chocolate cake I ordered was rich and decadent, just the way I like it. Will definitely be a repeat customer!"</p>
+        </div>
+    
+        <div class="box">
+            <div class="user">
+                <img decoding="async" src="C:/Users/Admin/Desktop/Mini Project/p5.jpeg" alt="">
+                <div class="info">
+                    <h3>Vincent Paul</h3>
+                </div>
+            </div>
+            <p>"The vanilla cupcakes I ordered were disappointing. They were dry and lacked flavor. However, the site interface was user-friendly and the delivery was on time."</p>
+        </div>
+    
+        <div class="box">
+            <div class="user">
+                <img decoding="async" src="C:/Users/Admin/Desktop/Mini Project/p6.jpeg" alt="">
+                <div class="info">
+                    <h3>Aditi Sharma</h3>
+                </div>
+            </div>
+            <p>"Overall, a great experience! The dessert options were plentiful, and the one I ordered exceeded my expectations. The delivery was fast, and the packaging kept everything fresh. Will definitely order again!"</p>
+        </div>
+    
+    </section>
+
+    <div class="share-experience">
+        <h2>Share Your Experience</h2>
+        <form id="userReviewForm">
+            <label>Name:</label><br>
+            <input type="text" id="userName" placeholder="Enter Your Name" required><br>
+            <label>Experience:</label><br>
+            <textarea id="userExperience" placeholder="Enter Your Experience" required></textarea><br>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <script>
+	document.getElementById('userReviewForm').addEventListener('submit', function(event) {
+    event.preventDefault(); 
+
+    var userName = document.getElementById('userName').value;
+    var userExperience = document.getElementById('userExperience').value;
+
+    var newUserReview = document.createElement('div');
+    newUserReview.classList.add('box');
+
+    var newUserDiv = document.createElement('div');
+    newUserDiv.classList.add('user');
+
+    var newUserInfo = document.createElement('div');
+    newUserInfo.classList.add('info');
+    var userNameHeader = document.createElement('h3');
+    userNameHeader.textContent = userName;
+    newUserInfo.appendChild(userNameHeader);
+
+    var newUserExperience = document.createElement('p');
+    newUserExperience.textContent = '"' + userExperience + '"';
+
+    newUserDiv.appendChild(newUserInfo);
+    newUserReview.appendChild(newUserDiv);
+    newUserReview.appendChild(newUserExperience);
+
+    document.querySelector('.review').appendChild(newUserReview);
+
+    document.getElementById('userName').value = '';
+    document.getElementById('userExperience').value = '';
+	});
+    </script>
+
+</body>
+</html>

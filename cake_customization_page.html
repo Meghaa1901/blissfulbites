@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cake Customization page</title>
+<style>
+body {
+      background: linear-gradient(130deg, #FF6B6B, #6B6BFF);
+      height: 260vh;
+    }
+form
+{
+	color: #FFD700;
+	font-size:18px;
+}
+h1{
+    text-decoration: border;
+    color:#333333;
+}
+h3
+{
+	color: #604138;
+}
+button
+{
+	color:#333333; 
+	background-color:#FFD700;
+}
+span
+{
+	color: turquoise;
+	font-size: 25px;
+}
+</style>
+</head>
+<body >
+<script>
+    function calculateTotal() {
+	
+        var total =0;
+		var basePrice =0;
+        if(document.getElementById('cs1').checked)
+        {
+            basePrice+=200;
+        }
+        else if(document.getElementById('cs2').checked)
+        {
+            basePrice+=350;
+        }
+        else if(document.getElementById('cs3').checked)
+        {
+            basePrice+=500;
+        }
+        
+        if(document.getElementById('s1').checked)
+        {
+            basePrice+=16;
+        }
+        else if(document.getElementById('s2').checked)
+        {
+            basePrice+=40;
+        }
+        else if(document.getElementById('s3').checked)
+        {
+            basePrice+=64;
+        }
+        else if(document.getElementById('s4').checked)
+        {
+            basePrice+=92;
+        }
+        else if(document.getElementById('s5').checked)
+        {
+            basePrice+=128;
+        }
+        else if(document.getElementById('s6').checked)
+        {
+            basePrice+=156;
+        }
+        else if(document.getElementById('s7').checked)
+        {
+            basePrice+=200;
+        }
+        
+        if(document.getElementById('e1').checked)
+        {
+            basePrice+=30;
+        }
+        else if(document.getElementById('e2').checked)
+        {
+            basePrice+=15;
+        }
+        
+        var shapePrice = 5; 
+        if (document.getElementById('sh1').checked) 
+        { 
+            shapePrice += 0;
+        } 
+        else if (document.getElementById('sh2').checked) 
+        { 
+            shapePrice += 2;
+        } 
+        else if (document.getElementById('sh3').checked) 
+        {
+            shapePrice += 3;
+        } 
+        else if (document.getElementById('sh4').checked) 
+        { 
+            shapePrice += 4;
+        }
+        
+        var flavourPrice = 5; 
+        if (document.getElementById('f1').checked) 
+        { 
+            flavourPrice += 0;
+        } 
+        else if (document.getElementById('f2').checked) 
+        {
+            flavourPrice += 5;
+        }
+        if (document.getElementById('f3').checked) 
+        { 
+            flavourPrice += 5;
+        } 
+        else if (document.getElementById('f4').checked) 
+        {
+            flavourPrice += 10;
+        }
+        if (document.getElementById('f5').checked) 
+        { 
+            flavourPrice += 20;
+        } 
+        else if (document.getElementById('f6').checked) 
+        {
+            flavourPrice += 20;
+        }
+        if (document.getElementById('f7').checked) 
+        { 
+            flavourPrice += 10;
+        } 
+        else if (document.getElementById('f8').checked) 
+        {
+            flavourPrice += 15;
+        }
+        if (document.getElementById('f9').checked) 
+        { 
+            flavourPrice += 15;
+        } 
+        else if (document.getElementById('f10').checked) 
+        {
+            flavourPrice += 12;
+        }
+        
+        var icingPrice=0;
+        if (document.getElementById('i1').checked) 
+        { 
+            icingPrice += 15;
+        } 
+        else if (document.getElementById('i2').checked) 
+        {
+            icingPrice += 15;
+        }
+        if (document.getElementById('i3').checked) 
+        { 
+            icingPrice += 30;
+        } 
+        else if (document.getElementById('i4').checked) 
+        {
+            icingPrice += 22;
+        }
+        if (document.getElementById('i5').checked) 
+        { 
+            icingPrice += 27;
+        } 
+        else if (document.getElementById('i6').checked) 
+        {
+            icingPrice += 32;
+        }
+        if (document.getElementById('i7').checked) 
+        { 
+            icingPrice += 20;
+        } 
+        else if (document.getElementById('i8').checked) 
+        {
+            icingPrice += 15;
+        }
+        
+        var toppingsPrice = 0;
+        var toppings = document.querySelectorAll('input[name^="t"]:checked');
+        toppings.forEach(function(topping) 
+		{
+            toppingsPrice += 10; 
+        });
+		
+		var fileInput = document.getElementById('myFile');
+		var photoPrice=0;
+		if (fileInput.files.length > 0) 
+		{
+			photoPrice += 150;
+		}
+		
+        var accessoriesPrice = 0;
+        var accessories = document.querySelectorAll('input[name^="a"]:checked');
+        accessories.forEach(function(accessory) 
+		{
+            accessoriesPrice += 25; 
+        });
+        total = basePrice +shapePrice + flavourPrice + icingPrice + toppingsPrice + photoPrice;
+		document.getElementById('bprice').innerText = "Basecost of the cake: Rs " + (basePrice+shapePrice);
+		document.getElementById('fprice').innerText = "Cost of flavour of the cake: Rs " + flavourPrice;
+		document.getElementById('iprice').innerText = "Cost of icing of the cake: Rs " + icingPrice;
+		document.getElementById('tprice').innerText = "Cost of toppings of the cake: Rs " + toppingsPrice;
+		document.getElementById('pprice').innerText = "Cost photo on your cake: Rs " + photoPrice;
+		document.getElementById('accessoriestotal').innerText = "Total cost of accessories: Rs " + accessoriesPrice;
+		document.getElementById('total').innerText = "Grand total of your cake: Rs " + total;
+		document.getElementById('grandtotal').innerText = "Grand total of your order: Rs " + (total+accessoriesPrice);
+		document.getElementById('msg').innerText = "We're grateful for your order! Thank you for choosing us.";
+    }
+</script>
+<h1 style="font-family: Imprint MT Shadow; color: #4A3D38; border:#4A3D38; margin-left: 40%;">Craft Your Own Cake</h1>
+<hr style="background-color: #CCCCCC; width: 40%; height: 4px;">
+<form>
+<h3>Number of Tier:</h3>
+<input type="radio" id="cs1" name="cs" value=150>One
+<input type="radio" id="cs2" name="cs" value=250>Two
+<input type="radio" id="cs3" name="cs" value=400>Three
+<br>
+<h3>Number of people to Serve:</h3>
+<input type="radio" id="s1" name="s" value=16>8
+<input type="radio" id="s2" name="s" value=40>20
+<input type="radio" id="s3" name="s" value=64>32
+<input type="radio" id="s4" name="s" value=92>46
+<input type="radio" id="s5" name="s" value=128>64
+<input type="radio" id="s6" name="s" value=156>78
+<input type="radio" id="s7" name="s" value=200>100
+<h3>With or Without Egg:</h3>
+<input type="radio" id="e1" name="e" value=30>With Egg
+<input type="radio" id="e2" name="e" value=15>Without Egg
+<h3>Shape of Cake:</h3>
+<input type="radio" id="sh1" name="sh">Round
+<input type="radio" id="sh2" name="sh">Square
+<input type="radio" id="sh3" name="sh">Heart
+<input type="radio" id="sh4" name="sh">Rectangle
+<h3>Flavour of Cake:</h3>
+<input type="radio" id="f1" name="f">Chocolate Flavour
+<input type="radio" id="f2" name="f">Vanilla Flavour
+<input type="radio" id="f3" name="f">Strawberry Flavour
+<input type="radio" id="f4" name="f">Butterscotch Flavour
+<input type="radio" id="f5" name="f">Red Velvet Flavour
+<input type="radio" id="f6" name="f">Cheese Cake Flavour
+<input type="radio" id="f7" name="f">Pineapple Cake Flavour
+<input type="radio" id="f8" name="f">Fruit Cake Flavour<br>
+<input type="radio" id="f9" name="f">Coffee Cake Flavour
+<input type="radio" id="f10" name="f">Mango Cake Flavour
+<br>
+<h3>Icing Flavours:</h3>
+<input type="radio" id="i1" name="i">Vanilla Buttercream Icing
+<input type="radio" id="i2" name="i">Chocolate Buttercream Icing
+<input type="radio" id="i3" name="i">Almond Buttercream Icing
+<input type="radio" id="i4" name="i">Cream Cheese Icing
+<input type="radio" id="i5" name="i">Strawberry Cream Cheese Icing
+<input type="radio" id="i6" name="i">Hazelnut Buttercream Icing<br>
+<input type="radio" id="i7" name="i">Caramel buttercream Icing
+<input type="radio" id="i8" name="i">Ganache
+<h3>Cake Toppings:</h3>
+<input type="checkbox" id="t1" name="t1">Buttercream Flowers
+<input type="checkbox" id="t2" name="t2">Shaved Chocolate or Chocolate Curls
+<input type="checkbox" id="t3" name="t3">Sprinkles or Jimmies
+<input type="checkbox" id="t4" name="t4">Nuts (almonds, pecans, walnuts)
+<input type="checkbox" id="t5" name="t5">Cookie Crumbs (Oreos, graham crackers)
+<input type="checkbox" id="t6" name="t6">Edible Flowers<br>
+<input type="checkbox" id="t7" name="t7">Candy Pieces (M&M's, Reese's Pieces, crushed candy canes)
+<input type="checkbox" id="t8" name="t8">Gold or Silver Leaf
+<input type="checkbox" id="t9" name="t9">Cherries
+<h3>Cake Inscription:</h3>
+<input type="text">
+<h3>Accessories:</h3>
+<input type="checkbox" id="a1" name="a1">Candles
+<input type="checkbox" id="a2" name="a2">Birthday Cap
+<input type="checkbox" id="a3" name="a3">Crown
+<input type="checkbox" id="a4" name="a4">Party Foam Spray
+<input type="checkbox" id="a5" name="a5">Party Popper
+<h3>Upload Your Photo for Customization:</h3>
+<input type="file" id="myFile" name="filename"><br><br>
+<hr style="background-color: #CCCCCC; width: 40%; height: 4px;">
+<br>
+<h1 style="font-family: Imprint MT Shadow; color: #4A3D38; border:#4A3D38; margin-left: 45%;">Order Details</h1>
+<h3>Date of Delivery (MINIMUM 2 DAYS REQUIRED):</h3>
+<input type="text" name="dod" id="dod" value="DD/MM/YYYY">
+<h3>Time:</h3>
+<input type="text" name="tod" id="tod" value="HH : MM AM/PM">
+<h3>Address:</h3>
+<textarea cols='50' rows='10'>Enter address where the cake is to be delivered......</textarea>
+<br>
+<button type="button" name='sub' onclick="calculateTotal()" style="margin-left: 43%;">PLACE ORDER</button>
+<button type="reset" name='reset' style="margin-left: 5%;">RESET</button>
+<br><br>
+<hr style="background-color: #CCCCCC; height: 4px;">
+<span id="bprice"></span><br>
+<span id="fprice"></span><br>
+<span id="iprice"></span><br>
+<span id="tprice"></span><br>
+<span id="pprice"></span><br>
+<span id="total"></span><br>
+<span id="accessoriestotal"></span><br><br>
+<span id="grandtotal" style="color: #00FF00;"></span><br>
+<hr style="background-color: #CCCCCC; height: 4px;">
+<br>
+<h2 id="msg" style="color: yellow; margin-left:33%;"></h2>
+</form>
+</body>
+</html>

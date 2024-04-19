@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<title>cart</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+		a{
+			padding: 10px;
+			text-decoration: none;
+			margin-left: 3%;
+			text-align: center;
+			color: white;
+		}
+		.heading {
+		  text-align: center;
+		  padding: 38px;
+		  font-family: "Imprint MT Shadow", serif;
+		  background-image: url("C:/Users/Admin/Desktop/Mini Project/abt2.jpeg");
+		}
+
+        .container {
+            display: flex;
+            width: 90%;
+            margin: 20px auto;
+        }
+
+        #root {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 10px; 
+			justify-content: flex-start;
+		}
+
+        .box {
+			border: 1px solid #ccc;
+			border-radius: 3px;
+			padding: 10px;
+			background-color: #F0D1CE;
+			width: calc(25% - 5px); 
+			margin-right: 5px; 
+			margin-bottom: 5px; 
+		}
+
+        .bottom {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        button {
+            width: 100%;
+            border: none;
+            border-radius: 5px;
+            background-color: goldenrod;
+            padding: 7px 25px;
+            cursor: pointer;
+            color: white;
+            margin-top: 10px;
+        }
+
+        .sidebar {
+			width: calc(400% - 1px); 
+			border-radius: 5px;
+			background-color: #C9B5AE;
+			margin-left: 16px;
+			padding: 10px;
+			text-align: center;
+		}
+
+        .head {
+            background-color: goldenrod;
+            border-radius: 3px;
+            padding: 10px;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .foot {
+            border-top: 1px solid #333;
+            padding-top: 10px;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .cart-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 5px;
+            background-color: white;
+            border-bottom: 1px solid #aaa;
+            border-radius: 3px;
+            margin: 10px 0;
+        }
+
+        .fa-trash:hover {
+            cursor: pointer;
+            color: #333;
+        }
+    </style>
+</head>
+<body style=" background-color:#F7F6ED">
+<nav style="background-color: #4C3232; margin-top: 1.5px; text-decoration: none; padding: 0.7%;text-align: center;">
+<a href="C:/Users/Admin/Desktop/Mini Project/home page.html">HOME</a>
+<a href="C:/Users/Admin/Desktop/Mini Project/shopcart.html">SHOP</a>
+<a href="C:/Users/Admin/Desktop/Mini Project/aboutus.html">ABOUT</a>
+<a href="C:/Users/Admin/Desktop/Mini Project/review.html">REVIEW</a>
+<a href="C:/Users/Admin/Desktop/Mini Project/contactus.html">CONTACT US</a>
+<a href=""><i class="fas fa-shopping-cart" style="color: white; size: 7px;"></i></a>
+<span id="count" style="color: white;"></span> 
+</nav>
+<div class="heading">
+<h1>What would you like to have?</h1>
+</div>
+<br>
+<div style="background-color: white;">
+<h3 style="font-family: Imprint MT Shadow; color: #4C3232; margin-left: 33%;">Tailor-made sweetness awaits – Click here to customize your cake!</h3><br>
+<button onclick="openWebpage()" id="customize" style="margin-left: 47%; width:100px;">GET STARTED</button>
+</div>
+<br><br><hr>
+<marquee behavior="alternate" direction="right" loop="infinite">
+<img src='C:/Users/Admin/Desktop/Mini Project/doughnut' height='250px' width='250px'>
+<img src="C:/Users/Admin/Desktop/Mini Project/cookies.jpg" height='250px' width='250px'>
+<img src="C:/Users/Admin/Desktop/Mini Project/cake.jpg" height='250px' width='250px'>
+<img src="C:/Users/Admin/Desktop/Mini Project/bread.jpg" height='250px' width='250px'>
+<img src="C:/Users/Admin/Desktop/Mini Project/pastry.jpg" height='250px' width='250px'>
+<img src="C:/Users/Admin/Desktop/Mini Project/crossaint.jpg" height='250px' width='250px'>
+<img src="C:/Users/Admin/Desktop/Mini Project/tiramisu cup.jpg" height='250px' width='250px'>
+<img src="C:/Users/Admin/Desktop/Mini Project/mawa cake.jpg" height='250px' width='250px'>
+</marquee><br><br>
+<div class="container">
+    <div id="root">
+	
+	</div>
+    <div class="sidebar">
+        <div class="head">
+            <p>My Cart</p>
+        </div>
+        <div id="cartItem">Your cart is empty</div>
+        <div class="foot">
+			<h3>Total</h3>
+			<h2 id="total">Rs. 0.00</h2>
+			<button onclick="placeOrder()">Place Order</button><br>
+			<div id="orderConfirmation" style="display: none; margin-top: 10px; color: red;"></div>
+		</div>
+    </div>
+<script>
+function openWebpage() 
+	{
+        window.open('http://localhost:8000/cake_customization_page.html', '_blank');
+    }
+function placeOrder() {
+    cart = [];
+    displaycart();
+    document.querySelector('.foot button').style.display = 'none';
+    document.getElementById('orderConfirmation').innerHTML = 'Your order is confirmed! Thank you for choosing us.';
+    document.getElementById('orderConfirmation').style.display = 'block';
+}
+
+const products = [
+    {
+        id: 0,
+        title: 'Chocolate Croissant',
+        price: 110,
+    },
+    {
+        id: 1,
+        title: 'Butter Croissant',
+        price: 90,
+    },
+    {
+        id: 2,
+        title: 'Cheese Croissant',
+        price: 105,
+    },
+	{
+        id: 3,
+        title: 'Blueberry Danish',
+        price: 85,
+    },
+	{
+        id: 4,
+        title: 'Butter Palmiers',
+        price: 85,
+    },
+    {
+        id: 5,
+        title: 'Chocolate Chip Cookies',
+        price: 70,
+    },
+	{
+        id: 6,
+        title: 'Double Choco Chip Cookies',
+        price: 160,
+    },
+	{
+        id: 7,
+        title: 'Chocolate Coated Biscuits',
+        price: 200,
+    },
+    {
+        id: 8,
+        title: 'Oatmeal Raisin Cookies',
+        price: 100,
+    },
+    {
+        id: 9,
+        title: 'Butter Cookies',
+        price: 60,
+    },
+    {
+        id: 10,
+        title: 'Peanut Butter Cookies',
+        price: 90,
+    },
+	{
+        id: 11,
+        title: 'Hazelnut Cookies',
+        price: 240,
+    },
+    {
+        id: 12,
+        title: 'Sugar Cookies',
+        price: 75,
+    },
+    {
+        id: 13,
+        title: 'Chocolate Cupcake',
+        price: 120,
+    },
+    {
+        id: 14,
+        title: 'Vanilla & Blueberry Cupcake',
+        price: 150,
+    },
+    {
+        id: 15,
+        title: 'Chocolate & Hazelnut Cupcake',
+        price: 140,
+    },
+    {
+        id: 16,
+        title: 'Red Velvet Cupcake',
+        price: 160,
+    },
+    {
+        id: 17,
+        title: 'Tiramisu Cup',
+        price: 175,
+    },
+    {
+        id: 18,
+        title: 'Chocolate Mousse Cup',
+        price: 155,
+    },
+	{
+        id: 19,
+        title: 'Chocolate Mousse Cup',
+        price: 165,
+    },
+	{
+        id: 20,
+        title: 'Blueberry Cheesecake Cup',
+        price: 195,
+    },
+    {
+        id: 21,
+        title: 'Glazed Doughnut',
+        price: 110,
+    },
+    {
+        id: 22,
+        title: 'Chocolate Frosted Doughnut',
+        price: 125,
+    },
+    {
+        id: 23,
+        title: 'Strawberry Frosted Doughnut',
+        price: 135,
+    },
+    {
+        id: 24,
+        title: 'Butternut Doughnut',
+        price: 150,
+    },
+    {
+        id: 25,
+        title: 'Choco Chip Brownie',
+        price: 110,
+    },
+    {
+        id: 26,
+        title: 'Walnut Brownie',
+        price: 110,
+    },
+    {
+        id: 27,
+        title: 'Cookie Brownie',
+        price: 115,
+    },
+    {
+        id: 28,
+        title: 'Mava Cake',
+        price: 275,
+    },
+    {
+        id: 29,
+        title: 'Banana Cake',
+        price: 150,
+    },
+    {
+        id: 30,
+        title: 'Black Forest Pastry',
+        price: 100,
+    },
+    {
+        id: 31,
+        title: 'Mango pastry',
+        price: 115,
+    },
+    {
+        id: 32,
+        title: 'Dark Chocolate Mousse Pastry',
+        price: 140,
+    },
+	{
+        id: 33,
+        title: 'Gluten Free Dark Chocolate Pastry',
+        price: 170,
+    },
+    {
+        id: 34,
+        title: 'Red Velvet Pastry',
+        price: 140,
+    },
+    {
+        id: 35,
+        title: 'Fresh Fruit & Cream Pastry',
+        price: 140,
+    },
+    {
+        id: 36,
+        title: 'Fresh Cream Pineapple Pastry',
+        price: 130,
+    },
+	{
+        id: 37,
+        title: 'Fresh Mango And Custard Pastry',
+        price: 150,
+    },
+    {
+        id: 38,
+        title: 'Dutch Truffle Pastry',
+        price: 140,
+    },
+    {
+        id: 39,
+        title: 'Black Forest Cake (500gm)',
+        price: 450,
+    },
+	{
+        id: 40,
+        title: 'Chocoholic Cake (500gm)',
+        price: 650,
+    },
+    {
+        id: 41,
+        title: 'Fresh Cream Pineapple Cake (500gm)',
+        price: 500,
+    },
+	{
+        id: 42,
+        title: 'Fresh Mango And Custard Cake (500gm)',
+        price: 600,
+    },
+	{
+        id: 43,
+        title: 'Eggless Blueberry Cheesecake (500gm)',
+        price: 750,
+    },
+	{
+        id: 44,
+        title: 'Mango Baked Cheesecake (500gm)',
+        price: 700,
+    },
+	{
+        id: 45,
+        title: 'Red Velvet Cake (500gm)',
+        price: 650,
+    },
+    {
+        id: 46,
+        title: 'Dutch Truffle Cake (500gm)',
+        price: 575,
+    },
+	{
+        id: 47,
+        title: 'Hazelnut Praline Mousse Cake (500gm)',
+        price: 700,
+    },
+    {
+        id: 48,
+        title: 'Fresh Cream Pineapple Cake (1 Kg)',
+        price: 1100,
+    },
+	{
+        id: 49,
+        title: 'Black Forest Cake (1 Kg)',
+        price: 1050,
+    },
+    {
+        id: 50,
+        title: 'Dutch Truffle Cake (1 Kg)',
+        price: 1250,
+    },
+    {
+        id: 51,
+        title: 'Wheat Sourdough Loaf',
+        price: 120,
+    },
+    {
+        id: 52,
+        title: 'Wheat Bread Loaf',
+        price: 90,
+    },
+    {
+        id: 53,
+        title: 'Multigrain Loaf',
+        price: 110,
+    },
+];
+
+document.getElementById('root').innerHTML = products.map((item) => {
+    const { title, price } = item;
+    return `
+        <div class='box'>
+            <div class='bottom'>
+                <p>${title}</p>
+                <h2>Rs. ${price}</h2>
+                <button onclick='addtocart(${item.id})'>Add to cart</button>
+            </div>
+        </div>
+    `;
+}).join('');
+
+// Cart functionality
+var cart = [];
+
+function addtocart(productId) {
+    const product = products.find(item => item.id === productId);
+    cart.push({ ...product });
+    displaycart();
+}
+
+function delElement(index) {
+    cart.splice(index, 1);
+    displaycart();
+}
+
+function displaycart() {
+    let total = 0;
+    document.getElementById("count").innerHTML = cart.length;
+    if (cart.length == 0) {
+        document.getElementById('cartItem').innerHTML = "Your cart is empty";
+        document.getElementById("total").innerHTML = "Rs. " + total;
+    } else {
+        document.getElementById("cartItem").innerHTML = cart.map((item, index) => {
+            const { title, price } = item;
+            total += price;
+            document.getElementById("total").innerHTML = "Rs. " + total;
+            return `
+                <div class='cart-item'>
+                    <p style='font-size: 12px;'>${title}</p>
+                    <h2 style='font-size: 15px;'>Rs. ${price}</h2>
+                    <button onclick='delElement(${index})'>Remove</button>
+                    <i class='fas fa-trash' onclick='delElement(${index})'></i>
+                </div>
+            `;
+        }).join('');
+    }
+}var cart = [];
+
+function addtocart(productId) {
+    const product = products.find(item => item.id === productId);
+    cart.push({ ...product });
+    displaycart();
+}
+
+function delElement(index) {
+    cart.splice(index, 1);
+    displaycart();
+}
+
+function displaycart() {
+    let total = 0;
+    document.getElementById("count").innerHTML = cart.length;
+    if (cart.length == 0) {
+        document.getElementById('cartItem').innerHTML = "Your cart is empty";
+        document.getElementById("total").innerHTML = "Rs. " + total;
+    } else {
+        document.getElementById("cartItem").innerHTML = cart.map((item, index) => {
+            const { title, price } = item;
+            total += price;
+            document.getElementById("total").innerHTML = "Rs. " + total;
+            return `
+                <div class='cart-item'>
+                    <p style='font-size: 12px;'>${title}</p>
+                    <h2 style='font-size: 15px;'>Rs. ${price}</h2>
+                    <button onclick='delElement(${index})'>Remove</button>
+                    <i class='fas fa-trash' onclick='delElement(${index})'></i>
+                </div>
+            `;
+        }).join('');
+    }
+}
+</script>
+</body>
+</html>

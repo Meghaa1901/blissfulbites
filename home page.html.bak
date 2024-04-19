@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Home Page</title>
+<style>
+a
+{
+	padding: 10px;
+	text-decoration: none;
+	margin-left: 3%;
+	color: white;
+}
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body align="center" style="background-image: url('C:/Users/Admin/Desktop/Mini Project/homepage_bg1.jpg'); background-size:cover; background-repeat: no-repeat; background-attachment: fixed;">
+<nav style="background-color: #4C3232; margin-top: 1.5px; text-decoration: none; padding: 0.7%;">
+<a href="C:/Users/Admin/Desktop/Mini Project/home page.html">HOME</a>
+<a href="C:/Users/Admin/Desktop/Mini Project/shopcart.html">SHOP</a>
+<a href="C:/Users/Admin/Desktop/Mini Project/aboutus.html">ABOUT</a>
+<a href="C:/Users/Admin/Desktop/Mini Project/review.html">REVIEW</a>
+<a href="C:/Users/Admin/Desktop/Mini Project/contactus.html">CONTACT US</a>
+<a href=""><i class="fas fa-shopping-cart" style="color: white; size: 7px;"></i></a>
+</nav>
+<img src="C:/Users/Admin/Desktop/Mini Project/logo.jpeg" height='9%' width='9%' style="margin-right: 32%; margin-top: 6%; border-width: 1px">
+<h1 style="margin-left: 2.5%; margin-top:-2.5%; color: #4C3232; font-family: Imprint MT Shadow;">BLISSFUL BITES</h1>
+<hr style="background-color: #F571C8; width: 25%; margin-left: 38%; height: 1.5px;">
+<hr style="background-color: #755A58; width: 40%; margin-left: 31%; height: 1.5px;">
+<h2 style="color: #F571C8; ">WELCOME!</h2>
+<p style="color: #785F58;">"Crafting Sweet Memories: Customized Cakes & Desserts Just For You!"</p>
+<img src="C:/Users/Admin/Desktop/Mini Project/shop3.jpg" width='23%'>
+</body>
+</html>
